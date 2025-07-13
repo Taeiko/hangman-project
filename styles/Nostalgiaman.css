@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    padding: 20px 10px;
+}
+
+.letters {
+    margin: 20px;
+    padding: 10px;
+}
+#reset {
+    margin-bottom: 30px;
+
+}
+
+.hidden{
+    visibility: hidden;
+}
