@@ -1,6 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 const letters = document.querySelectorAll(".letter")
 const messageElm = document.querySelector('.message')
+const wordUnderscores =  document.querySelector("#word-undercores")
 const word = ['pstwo', 'gumball', 'gta sa', 'nintendo gameboy', 'pokemon', 'tamagotchi']
 const maxAttempts = 6
 /*---------------------------- Variables (state) ----------------------------*/
@@ -29,6 +30,11 @@ function init() {
 
 // 1. display the _ on the page
 // 2. when the user clicks a letter check if the letter is in the word (if statement)
+//      a. add an event listener to each letter
+//      b. anytime the letter is pressed console.log() the letter value
+//      c. check if the letter they picked is in the displayWord array
+//      d. if its not than subtract 1 from the life variable
+//      e. if it is than show the letter on the page (This step has sub steps)
 // 3. deduct points based on wrong answer
 
 
@@ -39,12 +45,18 @@ function playGame() {
         displayedWord.push('_')
     }
     console.log(displayedWord)
+    console.log(wordUnderscores)
+
+    for(let i =0; i<displayedWord.length;i++){
+        pElement = document.createElement("p")
+        pElement.textContent = "_"
+        wordUnderscores.appendChild(pElement)
+    }
 }
 
 //picks random word from word array 
 function pickRandomWord() {
-    selectedWord = word[ Math.floor(Math.random()* word.length)]
-    console.log(typeof selectedWord)
+    selectedWord = word[Math.floor(Math.random() * word.length)]
 
 }
 //letter choice 
@@ -59,7 +71,11 @@ letters.forEach((oneLetter) => {
 })
 
 // shows blank spaces for the letters to go into 
-
+function showUnderscores() {
+    for (i = 0; i < word.length; i++)
+        messageElm.classList.remove('hidden')
+    word.push('_')
+}
 //show correct letter in the screen 
 function showWord(pickedLetter) {
     if (pickedLetter) {
@@ -82,7 +98,7 @@ function gameOver() {
 
 }
 playGame()
-
+showUnderscores()
 showWord(pickedLetter)
 /*----------------------------- Event Listeners -----------------------------*/
 // add event listener to all your buttons

@@ -16,3 +16,10 @@ body {
 .hidden{
     visibility: hidden;
 }
+
+
+#word-undercores{
+    display: flex;
+    justify-content: center;
+    gap:10px
+}
