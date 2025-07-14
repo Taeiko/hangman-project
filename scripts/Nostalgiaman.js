@@ -20,16 +20,34 @@ function init() {
 }
 
 
-function playGame() {
+// Play game function
+// Pick the word to play with from words array
+// Add underscores to displayedWord besed on the length of chosen word
+// Display the displayed word array in the messageElem
 
+
+
+// 1. display the _ on the page
+// 2. when the user clicks a letter check if the letter is in the word (if statement)
+// 3. deduct points based on wrong answer
+
+
+function playGame() {
+    pickRandomWord()
     displayedWord = []
     for (let i = 0; i < selectedWord.length; i++) {
         displayedWord.push('_')
+    }
+    console.log(displayedWord)
+}
 
-    } console.log(displayedWord)
+//picks random word from word array 
+function pickRandomWord() {
+    selectedWord = word[ Math.floor(Math.random()* word.length)]
+    console.log(typeof selectedWord)
 
 }
-//letter choice function
+//letter choice 
 letters.forEach((oneLetter) => {
     oneLetter.addEventListener("click", (event) => {
         pickedLetter = event.target.id.toLowerCase()
@@ -37,6 +55,7 @@ letters.forEach((oneLetter) => {
             showWord(pickedLetter)
         }
     })
+
 })
 
 // shows blank spaces for the letters to go into 
@@ -59,15 +78,10 @@ function decductLife() {
 
 }
 
-// Play game function
-// Pick the word to play with from words array
-// Add underscores to displayedWord besed on the length of chosen word
-// Display the displayed word array in the messageElem
-
 function gameOver() {
 
 }
-
+playGame()
 
 showWord(pickedLetter)
 /*----------------------------- Event Listeners -----------------------------*/
