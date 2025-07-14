@@ -1,16 +1,15 @@
 body {
     text-align: center;
     font-family: sans-serif;
-    padding: 20px 10px;
+    padding: 0;
 }
 
 .letters {
-    margin: 20px;
+    margin: 0 auto 10px auto;
     padding: 10px;
 }
 #reset {
     margin-bottom: 30px;
-
 }
 
 .hidden{

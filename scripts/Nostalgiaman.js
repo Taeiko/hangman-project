@@ -1,8 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
 const letters = document.querySelectorAll(".letter")
 const messageElm = document.querySelector('.message')
-const wordUnderscores =  document.querySelector("#word-undercores")
-const word = ['pstwo', 'gumball', 'gta sa', 'nintendo gameboy', 'pokemon', 'tamagotchi']
+const wordUnderscores = document.querySelector("#word-undercores")
+const word = ['pstwo', 'gumball', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi']
 const maxAttempts = 6
 /*---------------------------- Variables (state) ----------------------------*/
 let displayedWord = []
@@ -17,7 +17,10 @@ let wrongLetter = []
 /*-------------------------------- Functions --------------------------------*/
 // handle click function to push the letters to your word array (console.log the event.target.id)
 function init() {
-    currentWord = word[0]
+    pickRandomWord()
+    playGame()
+    showUnderscores()
+    showWord(pickedLetter)
 }
 
 
@@ -43,27 +46,26 @@ function playGame() {
     displayedWord = []
     for (let i = 0; i < selectedWord.length; i++) {
         displayedWord.push('_')
-    }
-    console.log(displayedWord)
-    console.log(wordUnderscores)
-
-    for(let i =0; i<displayedWord.length;i++){
         pElement = document.createElement("p")
         pElement.textContent = "_"
         wordUnderscores.appendChild(pElement)
     }
-}
+    console.log(displayedWord)
+    console.log(wordUnderscores)
+    }
+
 
 //picks random word from word array 
 function pickRandomWord() {
     selectedWord = word[Math.floor(Math.random() * word.length)]
-
 }
+
+
 //letter choice 
 letters.forEach((oneLetter) => {
     oneLetter.addEventListener("click", (event) => {
         pickedLetter = event.target.id.toLowerCase()
-        if (currentWord.includes(pickedLetter)) {
+        if (selectedWord.includes(pickedLetter)) {
             showWord(pickedLetter)
         }
     })
@@ -75,19 +77,32 @@ function showUnderscores() {
     for (i = 0; i < word.length; i++)
         messageElm.classList.remove('hidden')
     word.push('_')
+    for (i = 0; i < displayedWord.length; i++ )
+        pElement = document.createElement("p")
+        pElement.textContent = "_"
+        wordUnderscores.appendChild(pElement)
 }
+
+
+
+//show correct letter in the screen 
 //show correct letter in the screen 
 function showWord(pickedLetter) {
-    if (pickedLetter) {
-        messageElm.classList.remove('hidden')
-        messageElm.textContent += pickedLetter
-    } selectedWord.split('').forEach((letter, idx) => {
-        let correctGuess = false
+    selectedWord.split('').forEach((letter, idx) => {
         if (letter === pickedLetter) {
-            displayedWord[idx] = pickedLetter
-            correctGuess = true
+            displayedWord[idx] = pickedLetter;
+            // Replace the underscore with the guessed letter
+            const slot = wordUnderscores.children[idx];
+            if (slot) {
+                slot.textContent = pickedLetter;
+            }
         }
-    })
+    });
+}
+
+function checkLetter(keyboard){
+    keyboard.addEventListener()
+
 }
 //to check if the letter isnt in the word - will take a point from available lives 
 function decductLife() {
@@ -97,9 +112,6 @@ function decductLife() {
 function gameOver() {
 
 }
-playGame()
-showUnderscores()
-showWord(pickedLetter)
 /*----------------------------- Event Listeners -----------------------------*/
 // add event listener to all your buttons
 document.addEventListener('DOMContentLoaded', init)
