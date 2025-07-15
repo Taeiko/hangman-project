@@ -1,0 +1,25 @@
+button {
+background-color: lavender;
+height: 100px;
+width: 120px;
+font-size: 24px;
+border-radius: 20px;
+}
+.start-screen{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+}
+body{
+    text-align: center;
+    margin-top: 250px;
+}
+img {
+    display: inline-block;
+    background-size: cover;
+    background-repeat:repeat;
+    width:500px;
+    opacity: 0.5;
+    z-index: -1;
+}

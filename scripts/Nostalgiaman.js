@@ -4,6 +4,7 @@ const messageElm = document.querySelector('.message')
 const wordUnderscores = document.querySelector("#word-undercores")
 const livesElement = document.querySelector(".lives")
 const gameOverContainer = document.querySelector("#game-over")
+const image = document.querySelector("#hangman-img")
 const gameWinCont = document.querySelector("#game-win")
 const word = ['pstwo', 'gumball', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi']
 /*---------------------------- Variables (state) ----------------------------*/
@@ -57,7 +58,7 @@ letters.forEach((oneLetter) => {
         pickedLetter = event.target.id.toLowerCase()
         if (selectedWord.includes(pickedLetter)) {
             showWord(pickedLetter)
-        } else {lifePoints()}
+        } else { lifePoints() }
     })
 })
 
@@ -75,7 +76,6 @@ function showUnderscores() {
 
 
 
-//show correct letter in the screen 
 //show correct letter in the screen 
 function showWord(pickedLetter) {
     wordUnderscores.innerHTML = ""
@@ -105,36 +105,36 @@ function showWord(pickedLetter) {
 
 //to check if the letter isnt in the word - will take a point from available lives 
 function lifePoints() {
-    lives-=1
+    lives -= 1
     console.log(lives)
 
+    image.src = `./images/strike-${lives}.png`
     livesElement.textContent = `Reamining lives ${lives}`
 
+
+
     gameOver()
-} 
+}
 
 function gameOver() {
-if (lives == 0){
-    console.log("Game Over")
-    let gameOverText = document.createElement('p')
-    gameOverText.textContent = 'Game over!'
-    gameOverContainer.appendChild(gameOverText)
+    if (lives == 0) {
+        console.log("Game Over")
+        let gameOverText = document.createElement('p')
+        gameOverText.textContent = 'Game over!'
+        gameOverContainer.appendChild(gameOverText)
 
-}
+    }
 }
 
-function GameWin (noUnderscores){
+function GameWin() {
     // loop through the entire displayWords
-    let noDashes = true
-
-
-    let hasWon = displayedWord.every((element)=>{
+    let hasWon = displayedWord.every((element) => {
         return element !== "_"
     })
 
-    
 
-    if(hasWon){
+
+    if (hasWon) {
         console.log("YOU WIN")
         let gameWinText = document.createElement('p')
         gameWinText.textContent = "You won!"
