@@ -150,7 +150,7 @@ function gameOver() {
         // if lives = 0 - make a new paragraph element in html 
         let gameOverText = document.createElement('p')
         //make it say game over 
-        gameOverText.textContent = 'Game over!'
+        gameOverText.textContent = 'Darn, you missed out!'
         //show it on screen 
         gameOverContainer.appendChild(gameOverText)
         hintText.textContent = ""
@@ -171,7 +171,7 @@ function GameWin() {
         //i make computer do some dom event magic
         let gameWinText = document.createElement('p')
         //make that element say you won and make it visible if palayer guesses the word corectly 
-        gameWinText.textContent = "You won!"
+        gameWinText.textContent = "Nice! you have great taste in games!"
         gameWinCont.appendChild(gameWinText)
         //i add win audio that trigger on win 
         winAudioElm.play()
