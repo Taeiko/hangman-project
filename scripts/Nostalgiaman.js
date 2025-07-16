@@ -6,7 +6,17 @@ const livesElement = document.querySelector(".lives")
 const gameOverContainer = document.querySelector("#game-over")
 const image = document.querySelector("#hangman-img")
 const gameWinCont = document.querySelector("#game-win")
-const word = ['pstwo', 'gumball', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi']
+const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'segamegadrive', 'Mario', 'pepsiman', 'DS' ]
+const hint = ['The best selling console of all time',
+    'The GTA game we all played as kids on PS2',
+    'a Nintedo Handheld that came out in 1989',
+    'Gotta catch em all',
+    'a digital pet that you in your pocket',
+    'The console where Sonic the Hedgehog (1991) debuted',
+    'The main mascot of Nintendo',
+    'a Pepsi themed game on ps1',
+    'A handheld with two'
+]
 /*---------------------------- Variables (state) ----------------------------*/
 let displayedWord = []
 let selectedWord = ""
@@ -41,7 +51,7 @@ function playGame() {
     }
     console.log(displayedWord)
     console.log(wordUnderscores)
-    livesElement.textContent = lives
+    livesElement.textContent = ` Remaning lives: ${lives}`
 }
 
 
