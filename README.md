@@ -5,7 +5,7 @@
 
 Introduction
 
-this game was made by me for "project 1" for General assembly. NostalgiaMan is a retro themed hangman game based on the things i grewup with as a kid. I felt nostalgic making this game, i hope you feel the same when playing it too!
+this game was made by me for "project 1" for General assembly. NostalgiaMan is a retro themed hangman game about retro game consoles and ideo game franchises. I felt nostalgic making this game, i hope you feel the same when playing it too!
 
 
 
@@ -34,11 +34,11 @@ Technologies
 
 Game features
 
-- choosing random words on every restart
-i made it where every time the game is reset.
+- choosing a word upon game restart
+
 
 - Hints!
-to make things easier for the layer, i've included hints to ensure an easier time for the olayer to guess the word.
+to make things easier for the layer, i've included hints to ensure an easier time for the player to guess the word.
 
 Win conditions
  - ensure that you guess the word with amunt of guesses that you have.
