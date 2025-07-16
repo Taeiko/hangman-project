@@ -152,5 +152,3 @@ document.addEventListener('DOMContentLoaded', init)
 
 
 
-// if the lives hit 0 instead of console.log show the game over on the page
-// winning and losing
