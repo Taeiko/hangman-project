@@ -8,16 +8,21 @@ const gameOverContainer = document.querySelector("#game-over")
 const gameWinCont = document.querySelector("#game-win")
 const resetGameBtn = document.querySelector('.reset')
 const hintText = document.querySelector('#hint')
-const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'megadrive', 'mario', 'pepsiman', 'ds']
-const hints = ['The best selling console of all time',
-    'The GTA game that has `Grove Street` in it',
-    'A Nintedo Handheld that came out in 1989',
-    'Gotta catch em all',
-    'A digital pet that you keep in your pocket',
-    'The sega console where Sonic the Hedgehog (1991) debuted',
-    'The main mascot of Nintendo',
-    'A Pepsi themed game on ps1',
-    'A Nintendo handheld with two screens']
+const winAudioElm = document.querySelector('#jsr')
+const gameOverAudioElm = document.querySelector('#sadge')
+const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'sonic', 'mario', 'pepsiman', 'ds', 'parappa', 'crash']
+const hints = ['Hint: The best selling console of all time',
+    'Hint: The GTA game that has `Grove Street` in it',
+    'Hint: A Nintedo Handheld that came out in 1989',
+    'Hint: Gotta catch em all',
+    'Hint: A digital pet toy that you keep in your pocket',
+    'Hint: A blue hedgehog, debuted in the sega genesis in 1991',
+    'Hint: The main mascot of Nintendo',
+    'Hint: A Pepsi themed game on ps1',
+    'Hint: A Nintendo handheld with two screens',
+'Hint: A PS1 rhythm game about a `rapping dog`',
+'Hint: he is a bandicoot'
+]
 /*---------------------------- Variables (state) ----------------------------*/
 //word shown on the screen
 let displayedWord = []
@@ -152,13 +157,15 @@ function lifePoints() {
 function gameOver() {
     //if i run out of lives - game over - i make an if statement
     if (lives == 0) {
-        console.log("Game Over")
         // if lives = 0 - make a new paragraph element in html 
         let gameOverText = document.createElement('p')
         //make it say game over 
         gameOverText.textContent = 'Game over!'
         //show it on screen 
         gameOverContainer.appendChild(gameOverText)
+        hintText.textContent = ""
+        //play audio
+        gameOverAudioElm.play()
 
     }
 }
@@ -177,6 +184,8 @@ function GameWin() {
         //make that element say you won and make it visible if palayer guesses the word corectly 
         gameWinText.textContent = "You won!"
         gameWinCont.appendChild(gameWinText)
+        //i add win audio that trigger on win 
+        winAudioElm.play()
     }
 
 
@@ -195,7 +204,7 @@ function resetGame() {
     wordUnderscores.textContent = ""
     gameWinCont.textContent = ""
     gameOverContainer.textContent = ""
-    
+
     playGame()
     showHint()
 
