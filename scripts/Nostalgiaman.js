@@ -6,23 +6,25 @@ const livesElement = document.querySelector(".lives")
 const gameOverContainer = document.querySelector("#game-over")
 const image = document.querySelector("#hangman-img")
 const gameWinCont = document.querySelector("#game-win")
-const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'segamegadrive', 'Mario', 'pepsiman', 'DS' ]
-const hint = ['The best selling console of all time',
+const hintText = document.querySelector('#hint')
+const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'megadrive', 'mario', 'pepsiman', 'ds' ]
+const hints = ['The best selling console of all time',
     'The GTA game we all played as kids on PS2',
     'a Nintedo Handheld that came out in 1989',
     'Gotta catch em all',
     'a digital pet that you in your pocket',
-    'The console where Sonic the Hedgehog (1991) debuted',
+    'The sega console where Sonic the Hedgehog (1991) debuted',
     'The main mascot of Nintendo',
     'a Pepsi themed game on ps1',
-    'A handheld with two'
-]
+    'A handheld with two screens']
 /*---------------------------- Variables (state) ----------------------------*/
 let displayedWord = []
 let selectedWord = ""
 let pickedLetter;
 let wrongLetter = []
 let lives = 6
+let wordIndex = 0
+let selectedHint
 /*------------------------ Cached Element References ------------------------*/
 // grab all of your buttons
 
@@ -33,12 +35,9 @@ let lives = 6
 function init() {
     pickRandomWord()
     playGame()
+    showHint()
     console.log(selectedWord)
 }
-
-
-
-
 
 function playGame() {
     pickRandomWord()
@@ -57,10 +56,21 @@ function playGame() {
 
 //picks random word from word array 
 function pickRandomWord() {
-    selectedWord = word[Math.floor(Math.random() * word.length)]
+    wordIndex = Math.floor(Math.random() * word.length)
+    selectedWord = word[wordIndex]
 }
 
+//picks the hint corresponding to the word
+function showHint (){
+    const hintIndex = word.findIndex(function(oneWord){
+        return oneWord === selectedWord
+    })
 
+ selectedHint = hints[hintIndex]
+ hintText.textContent = selectedHint
+ console.log(selectedHint)
+    
+}
 //letter choice 
 //this only shows corrct guesses 
 letters.forEach((oneLetter) => {
