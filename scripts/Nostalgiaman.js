@@ -20,8 +20,8 @@ const hints = ['Hint: The best selling console of all time',
     'Hint: The main mascot of Nintendo',
     'Hint: A Pepsi themed game on ps1',
     'Hint: A Nintendo handheld with two screens',
-'Hint: A PS1 rhythm game about a `rapping dog`',
-'Hint: he is a bandicoot'
+    'Hint: A PS1 rhythm game about a `rapping dog`',
+    'Hint: he is a bandicoot'
 ]
 /*---------------------------- Variables (state) ----------------------------*/
 //word shown on the screen
@@ -38,11 +38,6 @@ let wrongLetter = []
 let lives = 6
 //the index of the word in the array 
 let wordIndex = 0
-/*------------------------ Cached Element References ------------------------*/
-
-
-
-
 /*-------------------------------- Functions --------------------------------*/
 //calls all fucntions i made for game to start - think like windows boot up sound
 function init() {
@@ -88,7 +83,6 @@ function showHint() {
 
 }
 
-
 //this shows the guessed letters picked by the player
 letters.forEach((oneLetter) => {
     oneLetter.addEventListener("click", (event) => {
@@ -123,7 +117,6 @@ function showWord(pickedLetter) {
 
         if (letter === pickedLetter) {
             displayedWord[idx] = letter
-
         }
     });
     displayedWord.forEach((element) => {
@@ -132,9 +125,6 @@ function showWord(pickedLetter) {
         wordUnderscores.appendChild(pElement)
 
     })
-
-
-    console.log(displayedWord)
     GameWin()
 }
 
@@ -178,7 +168,6 @@ function GameWin() {
     })
     //if the above condition is fullfilled
     if (hasWon) {
-        console.log("YOU WIN")
         //i make computer do some dom event magic
         let gameWinText = document.createElement('p')
         //make that element say you won and make it visible if palayer guesses the word corectly 
@@ -197,7 +186,7 @@ function resetGame() {
     lives = 6
     image.src = 'images/start.png'
     selectedHint = ""
-    displayedWord= []
+    displayedWord = []
     selectedWord = ""
     wrongLetter = []
 
@@ -211,7 +200,6 @@ function resetGame() {
 }
 
 
-console.log(selectedWord)
 
 /*----------------------------- Event Listeners -----------------------------*/
 // add event listener to all your buttons

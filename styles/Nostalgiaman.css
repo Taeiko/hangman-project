@@ -6,10 +6,12 @@ body {
     background-color: lavender;
 }
 
-.letters {
+.letters, button {
     margin: 0 auto 10px auto;
     padding: 10px;
-    
+    font-size: larger;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 #reset {
