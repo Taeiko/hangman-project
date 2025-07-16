@@ -2,12 +2,16 @@ body {
     text-align: center;
     font-family: sans-serif;
     padding: 0;
+    font-size: 25px;
+    background-color: lavender;
 }
 
 .letters {
     margin: 0 auto 10px auto;
     padding: 10px;
+    
 }
+
 #reset {
     margin-bottom: 30px;
 }
@@ -26,3 +30,5 @@ body {
 image {
     align-self: center;
 }
+
+

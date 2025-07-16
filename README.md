@@ -1,1 +1,1 @@
-# hangman-project-hell
+# hangman-project

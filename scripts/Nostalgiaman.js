@@ -7,16 +7,16 @@ const gameOverContainer = document.querySelector("#game-over")
 const image = document.querySelector("#hangman-img")
 const gameWinCont = document.querySelector("#game-win")
 const hintText = document.querySelector('#hint')
-const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'megadrive', 'mario', 'pepsiman', 'ds' ]
+const word = ['pstwo', 'sanandreas', 'gameboy', 'pokemon', 'tamagotchi', 'megadrive', 'mario', 'pepsiman', 'ds']
 const hints = ['The best selling console of all time',
-    'The GTA game we all played as kids on PS2',
-    'a Nintedo Handheld that came out in 1989',
+    'The GTA game that has `Grove Street` in it',
+    'A Nintedo Handheld that came out in 1989',
     'Gotta catch em all',
-    'a digital pet that you in your pocket',
+    'A digital pet that you in your pocket',
     'The sega console where Sonic the Hedgehog (1991) debuted',
     'The main mascot of Nintendo',
-    'a Pepsi themed game on ps1',
-    'A handheld with two screens']
+    'A Pepsi themed game on ps1',
+    'A Nintendo handheld with two screens']
 /*---------------------------- Variables (state) ----------------------------*/
 let displayedWord = []
 let selectedWord = ""
@@ -60,17 +60,18 @@ function pickRandomWord() {
     selectedWord = word[wordIndex]
 }
 
-//picks the hint corresponding to the word
-function showHint (){
-    const hintIndex = word.findIndex(function(oneWord){
+//picks the hint corresponding to the word from arrays 
+function showHint() {
+    const hintIndex = word.findIndex(function (oneWord) {
         return oneWord === selectedWord
     })
 
- selectedHint = hints[hintIndex]
- hintText.textContent = selectedHint
- console.log(selectedHint)
-    
+    selectedHint = hints[hintIndex]
+    hintText.textContent = selectedHint
+    console.log(selectedHint)
+
 }
+
 //letter choice 
 //this only shows corrct guesses 
 letters.forEach((oneLetter) => {
@@ -78,6 +79,7 @@ letters.forEach((oneLetter) => {
         pickedLetter = event.target.id.toLowerCase()
         if (selectedWord.includes(pickedLetter)) {
             showWord(pickedLetter)
+            //if the picked letter is wrong 
         } else { lifePoints() }
     })
 })
@@ -85,10 +87,8 @@ letters.forEach((oneLetter) => {
 // shows blank spaces for the letters to go into 
 function showUnderscores() {
     for (i = 0; i < word.length; i++)
-        messageElm.classList.remove('hidden')
-    word.push('_')
 
-    pElement = document.createElement("p")
+        pElement = document.createElement("p")
     pElement.textContent = "_"
     wordUnderscores.appendChild(pElement)
     console.log(pElement)
@@ -161,6 +161,11 @@ function GameWin() {
         gameWinCont.appendChild(gameWinText)
     }
 
+
+}
+
+
+function resetGame(){
 
 }
 /*----------------------------- Event Listeners -----------------------------*/
