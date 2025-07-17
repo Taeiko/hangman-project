@@ -122,7 +122,9 @@ function showWord(pickedLetter) {
     });
     // and show the picked letter on the screen 
     displayedWord.forEach((element) => {
+        //by creating a new p element 
         let pElement = document.createElement("p")
+        //and filling it with the picked letter
         pElement.textContent = element
         wordUnderscores.appendChild(pElement)
 

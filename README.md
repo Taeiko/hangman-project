@@ -5,13 +5,13 @@
 
 Introduction
 
-this game was made by me for "project 1" for General assembly. NostalgiaMan is a retro themed hangman game about retro game consoles and ideo game franchises. I felt nostalgic making this game, i hope you feel the same when playing it too!
+this game was made by me for "project 1" for General assembly. NostalgiaMan is a retro themed hangman game about retro game consoles and video game franchises. I felt nostalgic making this game, i hope you feel the same when playing it too!
 
 
 
 project brief 
 
-Hangman is a word guessing game in which you have a limited amount of attempts to guess the right letters of the word. once you run out of guesses, you lose.
+Hangman is a word guessing game in which you have a limited amount of attempts to guess the right letters of the word. once you run out of lives, you lose.
 
 - Create a working browser game that works on desktops.
 - create simple win and loss.conditions that are easy to impliment in code and in the game.
@@ -41,11 +41,11 @@ Game features
 to make things easier for the layer, i've included hints to ensure an easier time for the player to guess the word.
 
 Win conditions
- - ensure that you guess the word with amunt of guesses that you have.
+ - ensure that you guess the word correctly with amount of lives that you have.
 
  Loss conditions 
 
-- if you run out of guesses, it is game over.
+- if you run out of lives, it is game over.
 
 
 Conclusion 
