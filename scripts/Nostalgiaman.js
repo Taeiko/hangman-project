@@ -16,7 +16,7 @@ const hints = ['Hint: The best selling console of all time',
     'Hint: A Nintedo Handheld that came out in 1989',
     'Hint: Gotta catch em all',
     'Hint: A digital pet toy that you keep in your pocket',
-    'Hint: A blue hedgehog, debuted in the sega genesis in 1991',
+    'Hint: A blue hedgehog, debuted on the sega genesis in 1991',
     'Hint: The main mascot of Nintendo',
     'Hint: A Pepsi themed game on ps1',
     'Hint: A Nintendo handheld with two screens',
@@ -44,12 +44,13 @@ function init() {
     pickRandomWord()
     playGame()
     showHint()
-    console.log(selectedWord)
+    
 }
+
 
 function playGame() {
     pickRandomWord()
-    //i put the words i want to show on the screen in an array 
+    //i put the word i want to show on the screen in an array 
     displayedWord = []
     //created a loop to push underscores corresponding to the number of letters in each word
     for (let i = 0; i < selectedWord.length; i++) {
@@ -60,8 +61,7 @@ function playGame() {
     }
     //made an html element to display remaining lives 
     livesElement.textContent = ` Remaning lives: ${lives}`
-    console.log(displayedWord)
-    console.log(wordUnderscores)
+    
 }
 
 
@@ -79,7 +79,7 @@ function showHint() {
 
     selectedHint = hints[hintIndex]
     hintText.textContent = selectedHint
-    console.log(selectedHint)
+    
 
 }
 
@@ -103,22 +103,24 @@ function showUnderscores() {
     pElement.textContent = "_"
     //fills that new html element with underscores 
     wordUnderscores.appendChild(pElement)
-    console.log(pElement)
+    
 }
 
 
 
 //shows correct letter in the screen 
 function showWord(pickedLetter) {
-    //i grab the element from the html
-    wordUnderscores.innerHTML = ""
-    //i loop through every letter in the selected word 
+    //i empty the underscore element from the html
+    wordUnderscores.textContent = ""
+    //i loop through every letter in the selected word
     selectedWord.split('').forEach((letter, idx) => {
-
+    // if the user picks the correct word
         if (letter === pickedLetter) {
+            //it will pick it
             displayedWord[idx] = letter
         }
     });
+    // and show the picked letter on the screen 
     displayedWord.forEach((element) => {
         let pElement = document.createElement("p")
         pElement.textContent = element
@@ -133,7 +135,7 @@ function showWord(pickedLetter) {
 //to check if the letter isnt in the word - will take a point from available lives 
 function lifePoints() {
     lives -= 1
-    console.log(lives)
+    
     //shows the appropriate image when i lose a life 
     image.src = `./images/strike-${lives}.png`
     //shows text for remaining lives 
@@ -150,7 +152,7 @@ function gameOver() {
         // if lives = 0 - make a new paragraph element in html 
         let gameOverText = document.createElement('p')
         //make it say game over 
-        gameOverText.textContent = 'Darn, you missed out!'
+        gameOverText.textContent = 'Game over! Better luck next time!'
         //show it on screen 
         gameOverContainer.appendChild(gameOverText)
         hintText.textContent = ""
